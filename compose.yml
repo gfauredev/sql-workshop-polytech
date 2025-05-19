@@ -12,7 +12,7 @@ services:
       - internal_network  # Ajout du réseau interne
 
   pgadmin:
-    image: dpage/pgadmin4:8.14.0
+    image: dpage/pgadmin4 #:8.14.0
     container_name: pgadmin
     restart: always
     ports:
