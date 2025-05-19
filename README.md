@@ -34,12 +34,6 @@ Pour exécuter des requêtes SQL, cliquez sur Tools>Query Tool.
 
 ## Workshop
 
-Le workshop est décrit [ici](./workshop.md).
-
-# Réservation de matériel
-
-## Présentation du projet
-
 Dans cet exercice, nous allons créer une base de données pour gérer la
 réservation de matériel pour une école d'ingénieur. La base de données
 contiendra des informations sur les étudiants, le matériel disponible et les
