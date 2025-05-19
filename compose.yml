@@ -1,49 +1,49 @@
 services:
-  guilhem-db:
+  db:
     image: postgres:17.2
-    container_name: guilhem-db
+    container_name: db
     restart: always
     environment:
-      POSTGRES_USER: guilhem
-      POSTGRES_PASSWORD: guilhem
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
     volumes:
-      - local_pgdata-guilhem:/var/lib/postgresql/data
+      - postgres-data:/var/lib/postgresql/data
     networks:
-      - internal_network_guilhem  # Ajout du réseau interne
+      - internal_network  # Ajout du réseau interne
 
-  guilhem-pgadmin:
+  pgadmin:
     image: dpage/pgadmin4:8.14.0
-    container_name: guilhem-pgadmin
+    container_name: pgadmin
     restart: always
     ports:
-      - "0:80"  # pgAdmin sera accessible en externe
+      - "8080"  # pgAdmin sera accessible en externe
     environment:
-      PGADMIN_DEFAULT_EMAIL: guilhem@example.org
+      PGADMIN_DEFAULT_EMAIL: example@local.org
       PGADMIN_DEFAULT_PASSWORD: password
     volumes:
-      - pgadmin-data-guilhem:/var/lib/pgadmin
+      - pgadmin-data:/var/lib/pgadmin
     depends_on:
-      - guilhem-db
+      - db
     networks:
-      - internal_network_guilhem  # Ajout du réseau interne
+      - internal_network  # Ajout du réseau interne
 
-  # guilhem-vscode-web:
+  # vscode-web:
   #   image: codercom/code-server:latest
-  #   container_name: vscode-guilhem
+  #   container_name: vscode
   #   environment:
   #     PASSWORD: password # Mot de passe pour sécuriser l'accès à VS Code Web
   #   ports:
-  #     - "0:8080"
+  #     - "8888"
   #   volumes:
-  #     - vscode-guilhem:/home/coder
+  #     - vscode:/home/coder
   #   networks:
-  #     - internal_network_guilhem
+  #     - internal_network
 
 networks:
-  internal_network_guilhem:
+  internal_network:
     driver: bridge  # Création d'un réseau interne
 
 volumes:
-  local_pgdata-guilhem:
-  pgadmin-data-guilhem:
-  # vscode-guilhem:
+  postgres-data:
+  pgadmin-data:
+  # vscode:
