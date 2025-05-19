@@ -16,7 +16,7 @@ services:
     container_name: pgadmin
     restart: always
     ports:
-      - "8080"  # pgAdmin sera accessible en externe
+      - "8080:80"  # pgAdmin accessible en externe
     environment:
       PGADMIN_DEFAULT_EMAIL: example@local.org
       PGADMIN_DEFAULT_PASSWORD: password
