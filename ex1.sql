@@ -1,46 +1,48 @@
 -- Données example pour la table étudiant, avec numeros étudiants, noms prénoms
 -- et email aléatoires.
 INSERT INTO Etudiant (num_etudiant, nom, prenom, email, classe) VALUES
-(22030010, 'Dupont', 'Jean', 'jean.dupont@univ-tours.fr', 'ISIE'),
-(22030020, 'Martin', 'Sophie', 'sophie.martin@univ-tours.fr', 'ISIE'),
-(22040030, 'Petit', 'Luc', 'luc.petit@univ-tours.fr', 'ISIE'),
-(22040040, 'Durand', 'Marie', 'marie.durand@univ-tours.fr', 'ISIE'),
-(22050050, 'Lefevre', 'Pierre', 'pierre.lefevre@univ-tours.fr', 'ISIE'),
-(22050060, 'Dubois', 'Camille', 'camille.dubois@univ-tours.fr', 'ISIE'),
-(22030070, 'Garcia', 'Antoine', 'antoine.garcia@univ-tours.fr', 'ISIE'),
-(22030080, 'Leroy', 'Chloé', 'chloe.leroy@univ-tours.fr', 'ISIE'),
-(22040090, 'Moreau', 'Thomas', 'thomas.moreau@univ-tours.fr', 'ISIE'),
-(22040100, 'Roux', 'Manon', 'manon.roux@univ-tours.fr', 'ISIE'),
-(22050110, 'Fournier', 'Nicolas', 'nicolas.fournier@univ-tours.fr', 'ISIE'),
-(22050120, 'Simon', 'Emma', 'emma.simon@univ-tours.fr', 'ISIE');
+('22030010t', 'Dupont', 'Jean', 'jean.dupont@univ-tours.fr', 'ISIE'),
+('22030020t', 'Martin', 'Sophie', 'sophie.martin@univ-tours.fr', 'ISIE'),
+('22040030t', 'Petit', 'Luc', 'luc.petit@univ-tours.fr', 'ISIE'),
+('22040040t', 'Durand', 'Marie', 'marie.durand@univ-tours.fr', 'ISIE'),
+('22050050t', 'Lefevre', 'Pierre', 'pierre.lefevre@univ-tours.fr', 'ISIE'),
+('22050060t', 'Dubois', 'Camille', 'camille.dubois@univ-tours.fr', 'ISIE'),
+('22030070t', 'Garcia', 'Antoine', 'antoine.garcia@univ-tours.fr', 'ISIE'),
+('22030080t', 'Leroy', 'Chloé', 'chloe.leroy@univ-tours.fr', 'ISIE'),
+('22040090t', 'Moreau', 'Thomas', 'thomas.moreau@univ-tours.fr', 'ISIE'),
+('22040100t', 'Roux', 'Manon', 'manon.roux@univ-tours.fr', 'ISIE'),
+('22050110t', 'Fournier', 'Nicolas', 'nicolas.fournier@univ-tours.fr', 'ISIE'),
+('22050120t', 'Simon', 'Emma', 'emma.simon@univ-tours.fr', 'ISIE');
 
 -- Données example pour la table materiel, avec des numéros de série, noms et
 -- descriptions aléatoires.
 INSERT INTO Materiel (num_serie, nom, description, categorie) VALUES
-(101, 'Ordinateur Portable Dell XPS',
+('10cd1', 'Ordinateur Portable Dell XPS',
     'Modèle 2022, Core i7, 16Go RAM', 'Informatique'),
-(102, 'Ordinateur Portable HP ProBook',
+('1e02', 'Ordinateur Portable HP ProBook',
     'Modèle 2021, Core i5, 8Go RAM', 'Informatique'),
-(203, 'Projecteur Epson',
+('2e03', 'Projecteur Epson',
     'Haute luminosité, HDMI/VGA', 'Audiovisuel'),
-(204, 'Projecteur BenQ',
+('2e04', 'Projecteur BenQ',
     'Portable, courte focale', 'Audiovisuel'),
-(305, 'Kit Arduino Uno',
-    'Kit de démarrage avec composants', 'Électronique'),
-(306, 'Carte Arduino Mega',
-    'Carte avancée avec plus de pins', 'Électronique'),
-(207, 'Webcam Logitech HD',
-    'Résolution 1080p', 'Audiovisuel'),
-(208, 'Microphone Blue Yeti',
-    'Micro USB pour enregistrement', 'Audiovisuel'),
-(109, 'Raspberry Pi 4 (4Go)',
-    'Mini-ordinateur pour prototypage', 'Informatique'),
-(110, 'Raspberry Pi 4 (8Go)',
-    'Mini-ordinateur pour prototypage avancé', 'Informatique'),
-(311, 'Kit d''outils électroniques',
-    'Fer à souder, pinces, multimètre', 'Électronique'),
-(312, 'Multimètre numérique',
-    'Mesure tension, courant, résistance', 'Électronique');
+('3e0a5', 'Kit Arduino Uno',
+    'Kit de démarrage avec composants', 'Électronique');
+-- Avec quantitées explicites
+INSERT INTO Materiel (num_serie, nom, description, categorie, quantite) VALUES
+('3e0a6', 'Carte Arduino Mega',
+    'Carte avancée avec plus de pins', 'Électronique', 3),
+('2e0a7', 'Webcam Logitech HD',
+    'Résolution 1080p', 'Audiovisuel', 2),
+('2e0a8', 'Microphone Blue Yeti',
+    'Micro USB pour enregistrement', 'Audiovisuel', 3),
+('1e0a9', 'Raspberry Pi 4 (4Go)',
+    'Mini-ordinateur pour prototypage', 'Informatique', 5),
+('110a', 'Raspberry Pi 4 (8Go)',
+    'Mini-ordinateur pour prototypage avancé', 'Informatique', 3),
+('311a', 'Kit d''outils électroniques',
+    'Fer à souder, pinces, multimètre', 'Électronique', 2),
+('312a', 'Multimètre numérique',
+    'Mesure tension, courant, résistance', 'Électronique', 3);
 
 -- Données example pour la table reservation
 -- Les etudiant_id et materiel_id sont des clés étrangères référençant

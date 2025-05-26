@@ -5,20 +5,21 @@ CREATE DATABASE reservation_ecole_inge;
 -- Informations sur les étudiants
 CREATE TABLE etudiant (
     id SERIAL PRIMARY KEY,
-    num_etudiant INT UNIQUE NOT NULL,
+    num_etudiant CHAR(9) UNIQUE NOT NULL,
     nom VARCHAR(100) NOT NULL,
-    prenom VARCHAR(100),
-    email VARCHAR(255) UNIQUE NOT NULL,
+    prenom VARCHAR(150),
+    email VARCHAR(150) UNIQUE NOT NULL,
     classe VARCHAR(50)
 );
 
 -- Informations sur le materiel disponible
 CREATE TABLE materiel (
     id SERIAL PRIMARY KEY,
-    num_serie INT UNIQUE NOT NULL,
+    num_serie VARCHAR(50) UNIQUE,
     nom VARCHAR(100) NOT NULL,
     description TEXT,
-    categorie VARCHAR(50)
+    categorie VARCHAR(50),
+    quantite INT DEFAULT 1 NOT NULL
 );
 
 -- Les différentes réservations
