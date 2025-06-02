@@ -1,5 +1,48 @@
--- Données example pour la table étudiant, avec numeros étudiants, noms prénoms
--- et email aléatoires.
+-- Création de la BD
+CREATE DATABASE reservation_ecole_inge;
+
+-- Exécuter le SQL suivant dans un query tool de la BD précédemment créée :
+-- clic-droit sur celle-ci l’arborescence à gauche puis clic gauche Query Tool
+
+-- Informations sur les étudiants
+CREATE TABLE etudiant (
+    id SERIAL PRIMARY KEY,
+    num_etudiant CHAR(9) UNIQUE NOT NULL,
+    nom VARCHAR(100) NOT NULL,
+    prenom VARCHAR(150),
+    email VARCHAR(150) UNIQUE NOT NULL,
+    classe VARCHAR(50)
+);
+
+-- Informations sur le materiel disponible
+CREATE TABLE materiel (
+    id SERIAL PRIMARY KEY,
+    num_serie VARCHAR(50) UNIQUE,
+    nom VARCHAR(100) NOT NULL,
+    description TEXT,
+    categorie VARCHAR(50),
+    -- Quantité totale possédée par l’école, la quantité actuellement
+    -- disponible se déduit en en soustrayant les réservations en cours
+    quantite INT DEFAULT 1 NOT NULL
+);
+
+-- Les différentes réservations
+CREATE TABLE reservation (
+    id SERIAL PRIMARY KEY,
+    etudiant INT NOT NULL,
+    materiel INT NOT NULL,
+    debut TIMESTAMP NOT NULL,
+    fin TIMESTAMP,
+    statut VARCHAR(50) DEFAULT 'En attente',
+
+    FOREIGN KEY (etudiant) REFERENCES etudiant(id)
+        ON DELETE RESTRICT ON UPDATE CASCADE,
+    FOREIGN KEY (materiel) REFERENCES materiel(id)
+        ON DELETE RESTRICT ON UPDATE CASCADE
+);
+
+-- Données example pour la table étudiant, avec numeros étudiants, noms,
+-- prénoms et emails aléatoires.
 INSERT INTO Etudiant (num_etudiant, nom, prenom, email, classe) VALUES
 ('22030010t', 'Dupont', 'Jean', 'jean.dupont@univ-tours.fr', 'ISIE'),
 ('22030020t', 'Martin', 'Sophie', 'sophie.martin@univ-tours.fr', 'ISIE'),
